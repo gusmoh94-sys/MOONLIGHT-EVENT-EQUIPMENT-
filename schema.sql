@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS moonlight_event CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE moonlight_event;
+CREATE TABLE admins(id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(190) UNIQUE NOT NULL, password_hash VARCHAR(255) NOT NULL, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE settings(id INT PRIMARY KEY DEFAULT 1, company_name VARCHAR(190), tagline VARCHAR(255), description TEXT, whatsapp VARCHAR(40), whatsapp_link VARCHAR(255), instagram VARCHAR(190), instagram_link VARCHAR(255), maps_link VARCHAR(500), seo_title VARCHAR(255), seo_description TEXT);
+CREATE TABLE services(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(190), description TEXT, icon VARCHAR(80), image VARCHAR(500), sort_order INT DEFAULT 0);
+CREATE TABLE equipment(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(190), category VARCHAR(50), description TEXT, price VARCHAR(100), status VARCHAR(50), image VARCHAR(500), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE portfolio(id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(190), category VARCHAR(80), image VARCHAR(500), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE articles(id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(255), category VARCHAR(100), summary TEXT, content LONGTEXT, cover_image VARCHAR(500), file_path VARCHAR(500), published_at DATE);
+CREATE TABLE gallery(id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(190), media_type VARCHAR(30), file_path VARCHAR(500), created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+-- Setelah membuat admin: INSERT INTO admins(username,password_hash) VALUES ('admin', 'HASH_HASIL_password_hash');
